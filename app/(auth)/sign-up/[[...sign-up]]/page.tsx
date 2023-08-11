@@ -1,5 +1,9 @@
-import { SignUp } from "@clerk/nextjs"
+import { SignUp } from '@clerk/nextjs'
 
 export default function Page() {
-  return <SignUp />
+	return (
+		<section className="min-h-screen grid place-items-center">
+			<SignUp />
+		</section>
+	)
 }

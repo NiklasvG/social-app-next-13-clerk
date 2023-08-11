@@ -9,7 +9,6 @@ import {
 	FormField,
 	FormItem,
 	FormLabel,
-	FormMessage,
 } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -35,6 +34,7 @@ const Comment = ({ threadId, currentUserImg, currentUserId }: Props) => {
 		resolver: zodResolver(CommentValidation),
 		defaultValues: {
 			thread: '',
+			accountId: currentUserId,
 		},
 	})
 
