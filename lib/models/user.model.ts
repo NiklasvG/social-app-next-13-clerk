@@ -1,19 +1,31 @@
 import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
-	id: { type: String, required: true },
-	username: { type: String, required: true, unique: true },
-	name: { type: String, required: true },
+	id: {
+		type: String,
+		required: true,
+	},
+	username: {
+		type: String,
+		unique: true,
+		required: true,
+	},
+	name: {
+		type: String,
+		required: true,
+	},
 	image: String,
 	bio: String,
 	threads: [
-		// one user can have many threads
 		{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Thread',
 		},
 	],
-	onboarded: { type: Boolean, default: false },
+	onboarded: {
+		type: Boolean,
+		default: false,
+	},
 	communities: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
@@ -22,6 +34,6 @@ const userSchema = new mongoose.Schema({
 	],
 })
 
-const User = mongoose.models.User || mongoose.model('User', userSchema) // if model exists, use it, else create it out of schema
+const User = mongoose.models.User || mongoose.model('User', userSchema)
 
 export default User

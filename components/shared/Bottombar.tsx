@@ -1,13 +1,14 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { sidebarLinks } from '@/constants'
 
-const Bottombar = () => {
+function Bottombar() {
 	const pathname = usePathname()
+
 	return (
 		<section className="bottombar">
 			<div className="bottombar_container">
@@ -15,6 +16,7 @@ const Bottombar = () => {
 					const isActive =
 						(pathname.includes(link.route) && link.route.length > 1) ||
 						pathname === link.route
+
 					return (
 						<Link
 							href={link.route}
@@ -23,9 +25,11 @@ const Bottombar = () => {
 							<Image
 								src={link.imgURL}
 								alt={link.label}
-								width={24}
-								height={24}
+								width={16}
+								height={16}
+								className="object-contain"
 							/>
+
 							<p className="text-subtle-medium text-light-1 max-sm:hidden">
 								{link.label.split(/\s+/)[0]}
 							</p>
