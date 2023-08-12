@@ -88,7 +88,7 @@ export async function fetchUserPosts(userId: string) {
 			],
 		})
 		return threads
-	} catch (error) {
+	} catch (error: any) {
 		console.error('Error fetching user threads:', error)
 		throw error
 	}
